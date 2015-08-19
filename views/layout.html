@@ -9,8 +9,8 @@
       var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
       // set the map options hash
       var mapOptions = {
-          center: myLatlng,
-          zoom: 16,
+          center: new google.maps.LatLng(40.714985, -74.000841),
+          zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           mapTypeControl: false,
           panControl: false,
@@ -24,17 +24,27 @@
       // initialize a new Google Map with the options
       var map = new google.maps.Map(map_canvas_obj, mapOptions);
       // Add the marker to the map
-      var marker = new google.maps.Marker({
-          position: myLatlng,
-          title:"Hello World!"
-      });
       var hotelMarker = new google.maps.Marker({
-          position: [40.715076, -74.009301],
-          title:"Smyth TriBeCa"
+          position: new google.maps.LatLng(40.714985, -74.015841),
+          title:"Conrad New York Hotel"
+      });
+      var activityMarker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.701125, -74.01250),
+          title:"Staten Island Ferry Whitehall Terminal"
+      });
+      var activityMarker2 = new google.maps.Marker({
+          position: new google.maps.LatLng(40.707119, -74.003602), // given location was off
+          title:"South Street Seaport"
+      });
+      var restaurantMarker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.718679, -74.008900),
+          title:"Jungsik"
       });
       // Add the marker to the map by calling setMap()
-      marker.setMap(map);
       hotelMarker.setMap(map);
+      activityMarker.setMap(map);
+      activityMarker2.setMap(map);
+      restaurantMarker.setMap(map);
     }
 
     $(document).ready(function() {
