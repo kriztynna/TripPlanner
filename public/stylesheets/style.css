@@ -43,9 +43,9 @@ a {
 #nav-bottom {
   position: fixed;
   bottom: 0;
-  right: 25px; }
+  right: 0px; }
   #nav-bottom #add {
-    margin-left: 96;
+    margin-left: 216px;
     background-color: black;
     width: 84px;
     padding: 10px;
@@ -53,10 +53,11 @@ a {
     #nav-bottom #add:hover {
       cursor: pointer; }
   #nav-bottom #addMenu {
-    width: 200px;
+    width: 300px;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px; }
+    padding: 10px;
+    display: none; }
     #nav-bottom #addMenu h2 {
       margin-top: 0; }
 

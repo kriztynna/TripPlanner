@@ -1,3 +1,6 @@
+$addMenuWidth: 300px;
+$addButtonMargin: $addMenuWidth - 84px;
+
 body {
   margin: 0;
   color: white;
@@ -49,9 +52,9 @@ a {
 #nav-bottom {
   position: fixed;
   bottom: 0;
-  right: 25px;
+  right: 0px;
   #add {
-    margin-left: 96;
+    margin-left: $addButtonMargin;
     background-color: black;
     width: 84px;
     padding: 10px;
@@ -61,13 +64,14 @@ a {
     }
   }
   #addMenu {
-    width: 200px;
+    width: $addMenuWidth;
     background-color: black;
     background-color:rgba(0,0,0,0.5);
     h2 {
       margin-top: 0;
     }
     padding: 10px;
+    display: none;
   }
 }
 
