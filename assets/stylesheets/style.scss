@@ -52,7 +52,7 @@ a {
 #nav-bottom {
   position: fixed;
   bottom: 0;
-  right: 0px;
+  right: 0;
   #add {
     margin-left: $addButtonMargin;
     background-color: black;
@@ -70,7 +70,11 @@ a {
     h2 {
       margin-top: 0;
     }
-    padding: 10px;
+    select {
+      background-color: rgba(0,0,0,0);
+      color: white;
+    }
+    padding: 20px;
     display: none;
   }
 }
