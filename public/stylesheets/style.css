@@ -29,14 +29,14 @@ a {
   color: white; }
   #days::before {
     content: 'Days:'; }
-
-#days li {
-  list-style: none;
-  display: inline;
-  padding: 0 10px; }
+  #days li {
+    list-style: none;
+    display: inline;
+    padding: 0 10px; }
+    #days li:hover {
+      cursor: pointer; }
 
 #map {
-  z-index: -100;
   width: 100vw;
   height: 100vh; }
 
@@ -48,6 +48,8 @@ a {
     background-color: black;
     padding: 10px;
     border-radius: 5px 5px 0 0; }
+    #nav-bottom #add:hover {
+      cursor: pointer; }
 
 #activities {
   position: fixed;
@@ -55,6 +57,7 @@ a {
   right: 0;
   width: 200px;
   background-color: black;
-  opacity: 0.5; }
+  opacity: 0.5;
+  display: none; }
   #activities .content {
     opacity: 1; }
