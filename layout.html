@@ -1,0 +1,103 @@
+<html>
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGt92JpOe6qlwvGG2W5FqlzgD--gQkNYA&sensor=true"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <script>
+    function initialize_gmaps() {
+      // initialize new google maps LatLng object
+      var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+      // set the map options hash
+      var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          mapTypeControl: false,
+          panControl: false,
+          zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_CENTER
+          }
+      };
+      // get the maps div's HTML obj
+      var map_canvas_obj = document.getElementById("map");
+      // initialize a new Google Map with the options
+      var map = new google.maps.Map(map_canvas_obj, mapOptions);
+      // Add the marker to the map
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          title:"Hello World!"
+      });
+      // Add the marker to the map by calling setMap()
+      marker.setMap(map);
+  }
+
+  $(document).ready(function() {
+      initialize_gmaps();
+  });
+</script>
+  <style type="text/css">
+    body {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    #nav-top {
+      background-color: black;
+      position: fixed;
+      top: 0;
+      height: 50px;
+      width: 100%;
+      line-height: 50px;
+      /*opacity: 0.5;*/
+    }
+    #brand a {
+      font-family: 'Lobster', cursive;
+      color: white;
+      font-size: 55px;
+      width: 200px;
+    }
+    #days-label, #days {
+      float: right;
+      color: white;
+    }
+    #days {
+      margin: 0;
+    }
+    #days li {
+      list-style: none;
+      display: inline;
+    }
+
+    #map {
+      z-index: -100;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #nav-bottom {
+      position: fixed;
+      bottom: 0;
+      right: 25px;
+    }
+  </style>
+</head>
+<body>
+<div id="nav-top">
+  <div id="brand"><a href="/">TripAdvisor</a></div>
+  <div id="days-label">Days:</div>
+  <ul id="days">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>+</li>
+  </ul>
+</div>
+<div id="map">hi</div>
+<div id="nav-bottom">
+  <div id="add">Add Activity</div>
+</div>
+</body>
+</html>
