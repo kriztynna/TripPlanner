@@ -1,8 +1,11 @@
 body {
-  margin: 0; }
+  margin: 0;
+  color: white;
+  font-family: helevetica, sans-serif; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: white; }
 
 #nav-top {
   background-color: black;
@@ -11,27 +14,26 @@ a {
   height: 50px;
   width: 100%;
   line-height: 50px;
-  /*opacity: 0.5;*/ }
+  border-radius: 0 0 0 15px; }
 
 #brand {
-  display: inline; }
-
-#brand a {
+  display: inline;
   font-family: 'Lobster', cursive;
   color: white;
   font-size: 55px;
   width: 200px; }
 
-#days-label, #days {
+#days {
+  margin: 0 10px 0 0;
   float: right;
   color: white; }
-
-#days {
-  margin: 0; }
+  #days::before {
+    content: 'Days:'; }
 
 #days li {
   list-style: none;
-  display: inline; }
+  display: inline;
+  padding: 0 10px; }
 
 #map {
   z-index: -100;
@@ -42,3 +44,17 @@ a {
   position: fixed;
   bottom: 0;
   right: 25px; }
+  #nav-bottom #add {
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px 5px 0 0; }
+
+#activities {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 200px;
+  background-color: black;
+  opacity: 0.5; }
+  #activities .content {
+    opacity: 1; }

@@ -30,18 +30,25 @@
       });
       // Add the marker to the map by calling setMap()
       marker.setMap(map);
-  }
+    }
 
+    $(document).ready(function() {
+        initialize_gmaps();
+    });
+  </script>
+
+  <script>
   $(document).ready(function() {
-      initialize_gmaps();
+      $('#brand').click(function() {
+        $('#activities').show();
+      })
   });
-</script>
+  </script>
 <link href="/stylesheets/style.css" rel="stylesheet">
 </head>
 <body>
 <div id="nav-top">
-  <div id="brand"><a href="/">TripAdvisor</a></div>
-  <div id="days-label">Days:</div>
+  <div id="brand">TripAdvisor</div>
   <ul id="days">
     <li>1</li>
     <li>2</li>
@@ -52,6 +59,15 @@
 <div id="map">hi</div>
 <div id="nav-bottom">
   <div id="add">Add Activity</div>
+</div>
+
+<div id="activities">
+  <div class='content'>
+    <ul>
+      <li>hi</li>
+      <li>bye</li>
+    </ul>
+  </div>
 </div>
 </body>
 </html>
