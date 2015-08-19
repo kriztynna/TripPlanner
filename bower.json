@@ -1,0 +1,22 @@
+{
+  "name": "TripPlanner",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kriztynna/TripPlanner",
+  "authors": [
+    "Cristina <cristina.colon+git@gmail.com>",
+    "Chel"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
