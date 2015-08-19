@@ -1,18 +1,19 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Dropdown menus</h1>
-{% if collections.length > 0 %}
-	{% for c in collections %}
-		<h2>{{ c.name }}</h2>
-		<select>
-		{% for item in c.list %}
-			<option value="{{item.name}}">{{item.name}}</option>
+<div id="addMenu">
+	{% if collections.length > 0 %}
+		{% for c in collections %}
+			<h2 id="type">{{ c.name }}</h2>
+			<select id="{{ c.name }}" class='selector'>
+			{% for item in c.list %}
+				<option value="{{item.name}}">{{item.name}}</option>
+			{% endfor %}
+			</select>
 		{% endfor %}
-		</select>
-	{% endfor %}
-{% else %}
-  There are no pages. Why don't you add one?
-{% endif %}
+	{% else %}
+	  There are no pages. Why don't you add one?
+	{% endif %}
+</div>
 
 {% endblock %}

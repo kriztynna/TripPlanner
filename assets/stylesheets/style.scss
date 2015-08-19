@@ -28,7 +28,7 @@ a {
   &::before {
     content: 'Days:'
   }
-  margin: 0 10px 0 0;
+  margin: 0 25px 0 0;
   float: right;
   color: white;
   li {
@@ -42,7 +42,6 @@ a {
 }
 
 #map {
-  // z-index: -100;
   width: 100vw;
   height: 100vh;
 }
@@ -52,12 +51,23 @@ a {
   bottom: 0;
   right: 25px;
   #add {
+    margin-left: 96;
     background-color: black;
+    width: 84px;
     padding: 10px;
     border-radius: 5px 5px 0 0;
     &:hover {
       cursor: pointer;
     }
+  }
+  #addMenu {
+    width: 200px;
+    background-color: black;
+    background-color:rgba(0,0,0,0.5);
+    h2 {
+      margin-top: 0;
+    }
+    padding: 10px;
   }
 }
 
@@ -66,10 +76,10 @@ a {
   top: 50px;
   right: 0;
   width: 200px;
-  background-color: black;
-  opacity: 0.5;
-  .content {
-    opacity: 1;
-  }
+  background-color:rgba(0,0,0,0.5);
   display: none;
 }
+
+// .content {
+//   opacity: 1!important;
+// }
