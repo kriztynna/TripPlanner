@@ -40,10 +40,14 @@
     var mapOptions = {
       zoom: 15,
       center: new google.maps.LatLng(40.714985, -74.000841),
-      mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-      }
+      mapTypeControl: false,
+         panControl: false,
+         zoomControlOptions: {
+           style: google.maps.ZoomControlStyle.LARGE,
+           position: google.maps.ControlPosition.LEFT_CENTER
+         }
     };
+    
     var map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 

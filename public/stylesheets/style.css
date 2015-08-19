@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  color: white;
+  color: #ccc;
   font-family: helvetica, sans-serif; }
 
 a {
   text-decoration: none;
-  color: white; }
+  color: #ccc; }
 
 #nav-top {
   background-color: black;
@@ -19,24 +19,25 @@ a {
 #brand {
   display: inline;
   font-family: 'Lobster', cursive;
-  color: #d7ceb2;
+  color: #00ffe6;
   text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   font-size: 55px;
   width: 200px; }
 
 #days {
+  font-size: 18px;
   margin: 0 25px 0 0;
   float: right;
-  color: white; }
+  color: light-gray; }
   #days::before {
-    content: 'Days:'; }
+    content: 'Days'; }
   #days li {
     list-style: none;
     display: inline;
     padding: 0 10px; }
     #days li:hover {
       cursor: pointer;
-      color: #d7ceb2; }
+      color: #00ffe6; }
 
 #map {
   width: 100vw;
@@ -48,19 +49,21 @@ a {
   right: 0; }
   #nav-bottom #add {
     box-sizing: border-box;
-    margin-left: 186px;
+    margin-left: 260px;
     background-color: black;
-    width: 114px;
+    width: 115px;
     padding: 10px;
-    border-radius: 5px 5px 0 0; }
+    border-radius: 5px 5px 0 0;
+    font-size: 18px; }
     #nav-bottom #add:hover {
       cursor: pointer;
-      color: #d7ceb2; }
+      color: #00ffe6; }
   #nav-bottom #addMenu {
-    width: 300px;
+    width: 375px;
     box-sizing: border-box;
     background-color: black;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
     padding: 20px 20px 0;
     display: none; }
     #nav-bottom #addMenu h2 {
@@ -77,14 +80,16 @@ a {
   top: 50px;
   right: 0;
   width: 250px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: none;
-  padding: 20px; }
+  padding: 20px;
+  color: white; }
   #activities h2 {
     margin: 5px 0;
     font-weight: normal; }
   #activities ul {
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 25px; }
   #activities li {
     margin: 0;
     padding: 0;
@@ -92,7 +97,7 @@ a {
 
 #about {
   display: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
   position: fixed;
   top: 0;
