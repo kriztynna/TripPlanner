@@ -5,27 +5,53 @@
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script>
-    function initialize_gmaps() {
-      // initialize new google maps LatLng object
-      var myLatlng = new google.maps.LatLng(40.705189,-74.009209);
-      // set the map options hash
-      var mapOptions = {
-          center: new google.maps.LatLng(40.714985, -74.000841),
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          mapTypeControl: false,
-          panControl: false,
-          zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.LARGE,
-            position: google.maps.ControlPosition.LEFT_CENTER
-          }
-      };
-      // get the maps div's HTML obj
-      var map_canvas_obj = document.getElementById("map");
-      // initialize a new Google Map with the options
-      var map = new google.maps.Map(map_canvas_obj, mapOptions);
-      // Add the marker to the map
-      var hotelMarker = new google.maps.Marker({
+    function initialize() {
+
+    // Create an array of styles.
+    var styles = [
+      {
+        stylers: [
+          { hue: "#f600ff" }, //blue: #00ffe6 pink:#f600ff
+          { saturation: -20 }
+        ]
+      },{
+        featureType: "road",
+        elementType: "geometry",
+        stylers: [
+          { lightness: 100 },
+          { visibility: "simplified" }
+        ]
+      },{
+        featureType: "road",
+        elementType: "labels",
+        stylers: [
+          { visibility: "off" }
+        ]
+      }
+    ];
+
+    // Create a new StyledMapType object, passing it the array of styles,
+    // as well as the name to be displayed on the map type control.
+    var styledMap = new google.maps.StyledMapType(styles,
+      {name: "Styled Map"});
+
+    // Create a map object, and include the MapTypeId to add
+    // to the map type control.
+    var mapOptions = {
+      zoom: 15,
+      center: new google.maps.LatLng(40.714985, -74.000841),
+      mapTypeControlOptions: {
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+      }
+    };
+    var map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+
+    //Associate the styled map with the MapTypeId and set it to display.
+    map.mapTypes.set('map_style', styledMap);
+    map.setMapTypeId('map_style');
+
+    var hotelMarker = new google.maps.Marker({
           position: new google.maps.LatLng(40.714985, -74.015841),
           title:"Conrad New York Hotel"
       });
@@ -46,10 +72,10 @@
       activityMarker.setMap(map);
       activityMarker2.setMap(map);
       restaurantMarker.setMap(map);
-    }
+  }
 
     $(document).ready(function() {
-        initialize_gmaps();
+        initialize();
     });
   </script>
 
