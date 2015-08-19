@@ -11,8 +11,6 @@ router.get('/', function(req, res, next) {
 	}
 	var output = [];
 	Promise.all(actions).then(function(results){
-		// console.log('all the actions were performed');
-		// console.log(results.length);
 		for (var i=0;i<results.length;i++){
 			var currKey = keys[i];
 			var currList = []
@@ -24,6 +22,25 @@ router.get('/', function(req, res, next) {
 		}
 	});
 	res.render('index', {collections: output});
+});
+
+router.get('/newplan',function(req,res){
+	var plan = new collections.Plan({
+		name: 'pilot plan',
+		days: []
+	});
+	
+	plan.save()
+		.then(
+			function(plan){
+				console.log(plan)
+				var day = new collections.Day({plan:plan._id});
+				return day.save();
+			})
+		.then(function(day){
+			res.redirect('/');
+		})
+		.catch(function(err){console.log(err);});
 });
 
 module.exports = router;

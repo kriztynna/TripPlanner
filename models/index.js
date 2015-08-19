@@ -33,6 +33,28 @@ var restaurantSchema = new mongoose.Schema({
 	price: { type: Number, min: 1, max: 5 } // 1-5 dollar signs
 });
 
+var planSchema = new mongoose.Schema({
+	name: {type: String},
+	days: {type: Array} // array of day _ids
+});
+
+var daySchema = new mongoose.Schema({
+	index: { type: Number, default: 1 },
+	hotel: {type: Array}, 
+	restaurants: {type: Array}, 
+	activities: {type: Array}, 
+	plan: {type: mongoose.Schema.Types.ObjectId, ref: 'Plan'} // the plan it belongs to
+});
+
+daySchema.pre('save', function(next) {
+    var day = this;
+    Plan.findById(day.plan._id, function (err, plan) {
+    	day.index = plan.days.length + 1;
+    	day.save(function (err) {});
+        next();
+    });
+});
+
 // get comma-delimited string version of array
 function getCDS (arr) {
 	return arr.join(", ");
@@ -42,10 +64,14 @@ var Place = mongoose.model('Place', placeSchema);
 var Hotel = mongoose.model('Hotel', hotelSchema);
 var Activity = mongoose.model('Activity', activitySchema);
 var Restaurant = mongoose.model('Restaurant', restaurantSchema);
+var Plan = mongoose.model('Plan', planSchema);
+var Day = mongoose.model('Day', daySchema);
 
 module.exports = {
   Place: Place,
   Hotel: Hotel,
   Activity: Activity,
-  Restaurant: Restaurant
+  Restaurant: Restaurant,
+  Plan: Plan,
+  Day: Day
 };
