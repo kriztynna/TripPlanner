@@ -28,8 +28,13 @@
           position: myLatlng,
           title:"Hello World!"
       });
+      var hotelMarker = new google.maps.Marker({
+          position: [40.715076, -74.009301],
+          title:"Smyth TriBeCa"
+      });
       // Add the marker to the map by calling setMap()
       marker.setMap(map);
+      hotelMarker.setMap(map);
     }
 
     $(document).ready(function() {

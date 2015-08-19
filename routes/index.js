@@ -24,17 +24,4 @@ router.get('/', function(req, res, next) {
 	res.render('index', {collections: output});
 });
 
-router.get('/newplan',function(req,res){
-	var plan = new collections.Plan({
-		name: 'pilot plan',
-		days: []
-	});
-	plan.save()
-		.then(
-			function(plan){
-				var day = new collections.Day({plan:plan._id});
-				day.save().then(function(day){console.log(day);res.redirect('/');});
-			});
-});
-
 module.exports = router;
