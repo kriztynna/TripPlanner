@@ -1,1 +1,15 @@
-testing index page
+{% extends "layout.html" %}
+
+{% block content %}
+  <h3>Businesses</h3>
+  <hr>
+  <ul class="list-unstyled">
+    {% if businesses.length > 0 %}
+    {% for biz in businesses %}
+      <li>{{ biz.name }}</li>
+    {% endfor %}
+{% else %}
+  There are no pages. Why don't you <a href='/wiki/add'>add one</a>?
+{% endif %}
+  </ul>
+{% endblock %}
