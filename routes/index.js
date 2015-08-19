@@ -4,25 +4,26 @@ var collections = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var keys = Object.keys(collections);
+	var keys = Object.keys(collections).filter(function(a){return a!='Place'}); // all collections except places
 	var actions = [];
 	for (var i=0;i<keys.length;i++) {
 		actions.push(collections[keys[i]].find({}));
 	}
 	var output = [];
 	Promise.all(actions).then(function(results){
-		console.log('all the actions were performed');
-		console.log(results.length);
-		//results = results[1];
+		// console.log('all the actions were performed');
+		// console.log(results.length);
 		for (var i=0;i<results.length;i++){
+			var currKey = keys[i];
+			var currList = []
 			for (var j=0;j<results[i].length;j++) {
 				var current = results[i][j];
-				console.log(current);
-				output.push({name: current.name});
+				currList.push({name: current.name});
 			}
+			output.push({name: currKey, list: currList});
 		}
 	});
-	res.render('index', {businesses: output});
+	res.render('index', {collections: output});
 });
 
 module.exports = router;

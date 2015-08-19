@@ -1,15 +1,18 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  <h3>Businesses</h3>
-  <hr>
-  <ul class="list-unstyled">
-    {% if businesses.length > 0 %}
-    {% for biz in businesses %}
-      <li>{{ biz.name }}</li>
-    {% endfor %}
+<h1>Dropdown menus</h1>
+{% if collections.length > 0 %}
+	{% for c in collections %}
+		<h2>{{ c.name }}</h2>
+		<select>
+		{% for item in c.list %}
+			<option value="{{item.name}}">{{item.name}}</option>
+		{% endfor %}
+		</select>
+	{% endfor %}
 {% else %}
-  There are no pages. Why don't you <a href='/wiki/add'>add one</a>?
+  There are no pages. Why don't you add one?
 {% endif %}
-  </ul>
+
 {% endblock %}
