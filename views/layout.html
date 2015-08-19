@@ -3,6 +3,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGt92JpOe6qlwvGG2W5FqlzgD--gQkNYA&sensor=true"></script>
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script>
     function initialize_gmaps() {
       // initialize new google maps LatLng object
@@ -45,6 +46,12 @@
       $('#add').click(function() {
         $('#addMenu').slideToggle();
       })
+      $('#brand').click(function(){
+        $('#about').show();
+      })
+      $('#about').click(function(){
+        $('#about').hide(); 
+      })
   });
   </script>
 <link href="/stylesheets/style.css" rel="stylesheet">
@@ -65,10 +72,24 @@
   {% block content %}{% endblock %}
 </div>
 <div id="activities">
+  <h2>Hotel</h2>
   <ul>
-    <li>hi</li>
-    <li>bye</li>
+    <li><span class="glyphicon glyphicon-remove"></span>  Conrad New York Hotel</li>
   </ul>
+  <h2>Activities</h2>
+  <ul>
+    <li><span class="glyphicon glyphicon-remove"></span>  Staten Island Ferry</li>
+    <li><span class="glyphicon glyphicon-remove"></span>  South Street Sea Port</li>
+  </ul>
+  <h2>Restaurants</h2>
+  <ul>
+    <li><span class="glyphicon glyphicon-remove"></span>  Staten Island Ferry</li>
+  </ul>
+</div>
+<div id='about'>
+  <div id='about_content'
+    <p>About // Contact
+  </div>
 </div>
 </body>
 </html>

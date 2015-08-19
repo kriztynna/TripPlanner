@@ -19,7 +19,8 @@ a {
 #brand {
   display: inline;
   font-family: 'Lobster', cursive;
-  color: white;
+  color: #d7ceb2;
+  text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   font-size: 55px;
   width: 200px; }
 
@@ -34,7 +35,8 @@ a {
     display: inline;
     padding: 0 10px; }
     #days li:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #d7ceb2; }
 
 #map {
   width: 100vw;
@@ -52,7 +54,8 @@ a {
     padding: 10px;
     border-radius: 5px 5px 0 0; }
     #nav-bottom #add:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      color: #d7ceb2; }
   #nav-bottom #addMenu {
     width: 300px;
     box-sizing: border-box;
@@ -73,6 +76,32 @@ a {
   position: fixed;
   top: 50px;
   right: 0;
-  width: 200px;
+  width: 250px;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none; }
+  display: none;
+  padding: 20px; }
+  #activities h2 {
+    margin: 5px 0;
+    font-weight: normal; }
+  #activities ul {
+    padding: 0; }
+  #activities li {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+
+#about {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; }
+  #about #about_content {
+    background-color: white;
+    height: 300px;
+    width: 300px;
+    margin: 100px auto 0;
+    color: black; }
