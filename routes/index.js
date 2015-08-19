@@ -4,7 +4,7 @@ var collections = require('../models');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var keys = Object.keys(collections).filter(function(a){return a!='Place'}); // all collections except places
+	var keys = ['Hotel','Activity','Restaurant'];
 	var actions = [];
 	for (var i=0;i<keys.length;i++) {
 		actions.push(collections[keys[i]].find({}));
@@ -29,18 +29,12 @@ router.get('/newplan',function(req,res){
 		name: 'pilot plan',
 		days: []
 	});
-	
 	plan.save()
 		.then(
 			function(plan){
-				console.log(plan)
 				var day = new collections.Day({plan:plan._id});
-				return day.save();
-			})
-		.then(function(day){
-			res.redirect('/');
-		})
-		.catch(function(err){console.log(err);});
+				day.save().then(function(day){console.log(day);res.redirect('/');});
+			});
 });
 
 module.exports = router;
