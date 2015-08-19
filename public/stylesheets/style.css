@@ -1,7 +1,7 @@
 body {
   margin: 0;
   color: white;
-  font-family: helevetica, sans-serif; }
+  font-family: helvetica, sans-serif; }
 
 a {
   text-decoration: none;
@@ -45,24 +45,29 @@ a {
   bottom: 0;
   right: 0; }
   #nav-bottom #add {
-    margin-left: 216px;
+    box-sizing: border-box;
+    margin-left: 186px;
     background-color: black;
-    width: 84px;
+    width: 114px;
     padding: 10px;
     border-radius: 5px 5px 0 0; }
     #nav-bottom #add:hover {
       cursor: pointer; }
   #nav-bottom #addMenu {
     width: 300px;
+    box-sizing: border-box;
     background-color: black;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    padding: 20px 20px 0;
     display: none; }
     #nav-bottom #addMenu h2 {
-      margin-top: 0; }
+      margin: 0 0 5px;
+      font-weight: normal; }
     #nav-bottom #addMenu select {
       background-color: transparent;
       color: white; }
+    #nav-bottom #addMenu .selector {
+      margin-bottom: 25px; }
 
 #activities {
   position: fixed;

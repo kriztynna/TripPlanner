@@ -1,10 +1,10 @@
 $addMenuWidth: 300px;
-$addButtonMargin: $addMenuWidth - 84px;
+$addButtonMargin: $addMenuWidth - 114px;
 
 body {
   margin: 0;
   color: white;
-  font-family: helevetica, sans-serif;
+  font-family: helvetica, sans-serif;
 }
 
 a {
@@ -54,9 +54,10 @@ a {
   bottom: 0;
   right: 0;
   #add {
+    box-sizing: border-box;
     margin-left: $addButtonMargin;
     background-color: black;
-    width: 84px;
+    width: 114px;
     padding: 10px;
     border-radius: 5px 5px 0 0;
     &:hover {
@@ -65,16 +66,21 @@ a {
   }
   #addMenu {
     width: $addMenuWidth;
+    box-sizing: border-box;
     background-color: black;
     background-color:rgba(0,0,0,0.5);
     h2 {
-      margin-top: 0;
+      margin: 0 0 5px;
+      font-weight: normal;
     }
     select {
       background-color: rgba(0,0,0,0);
       color: white;
     }
-    padding: 20px;
+    .selector {
+      margin-bottom: 25px;
+    }
+    padding: 20px 20px 0;
     display: none;
   }
 }
@@ -87,7 +93,3 @@ a {
   background-color:rgba(0,0,0,0.5);
   display: none;
 }
-
-// .content {
-//   opacity: 1!important;
-// }
