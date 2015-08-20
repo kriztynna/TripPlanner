@@ -38,13 +38,13 @@
     // Create a map object, and include the MapTypeId to add
     // to the map type control.
     var mapOptions = {
-      zoom: 15,
+      zoom: 14,
       center: new google.maps.LatLng(40.714985, -74.000841),
       mapTypeControl: false,
          panControl: false,
          zoomControlOptions: {
-           style: google.maps.ZoomControlStyle.LARGE,
-           position: google.maps.ControlPosition.LEFT_CENTER
+           style: google.maps.ZoomControlStyle.SMALL,
+           position: google.maps.ControlPosition.LEFT_BOTTOM
          }
     };
 
@@ -55,27 +55,55 @@
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    var hotelMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.714985, -74.015841),
-          title:"Conrad New York Hotel"
-      });
-      var activityMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.701125, -74.01250),
-          title:"Staten Island Ferry Whitehall Terminal"
-      });
-      var activityMarker2 = new google.maps.Marker({
-          position: new google.maps.LatLng(40.707119, -74.003602), // given location was off
-          title:"South Street Seaport"
-      });
-      var restaurantMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.718679, -74.008900),
-          title:"Jungsik"
-      });
+    // var hotelMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.714985, -74.015841),
+    //       title:"Conrad New York Hotel"
+    //   });
+    //   var activityMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.701125, -74.01250),
+    //       title:"Staten Island Ferry Whitehall Terminal"
+    //   });
+    //   var activityMarker2 = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.707119, -74.003602), // given location was off
+    //       title:"South Street Seaport"
+    //   });
+    //   var restaurantMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.718679, -74.008900),
+    //       title:"Jungsik"
+    //   });
       // Add the marker to the map by calling setMap()
-      hotelMarker.setMap(map);
-      activityMarker.setMap(map);
-      activityMarker2.setMap(map);
-      restaurantMarker.setMap(map);
+      // hotelMarker.setMap(map);
+      // activityMarker.setMap(map);
+      // activityMarker2.setMap(map);
+      // restaurantMarker.setMap(map);
+
+      var places = [
+        {position: {lat: 40.714985, lng: -74.015841},
+        title: "1"},
+        {position: {lat: 40.701125, lng: -74.01250},
+        title: "2"},
+        {position: {lat: 40.707119, lng: -74.003602},
+        title: "3"},
+        {position: {lat: 40.718679, lng: -74.008900},
+        title: '4'}
+      ];
+      var markers = [];
+
+      function addMarkerWithTimeout(position, title, timeout) {
+        window.setTimeout(function() {
+          markers.push(new google.maps.Marker({
+            position: position,
+            map: map,
+            label: title,
+            animation: google.maps.Animation.DROP
+          }));
+        }, timeout);
+        console.log('hi');
+      }
+
+      for (var i = 0; i < places.length; i++) {
+        addMarkerWithTimeout(places[i].position, places[i].title, (i + 1) * 400);
+      }
   }
 
     $(document).ready(function() {
@@ -136,7 +164,7 @@
 </div>
 <div id='about'>
   <div id='about_content'>
-    <h3>About // Contact</h3>
+    <h2>About <span>// <a href="#">Contact</a></span></h2>
     <p>Our super duper TripPlanner app has the sickest prettiest pink map and retro aqua blue accents EVAR.</p>
   </div>
 </div>

@@ -10,7 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #ccc;
+  color: white;
 }
 
 #nav-top {
@@ -30,6 +30,9 @@ a {
 	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   font-size: 55px;
   width: 200px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 #days {
   font-size: 18px;
@@ -152,11 +155,19 @@ a {
   height: 100vh;
   #about_content {
     border-radius: 10px;
-    background-color: #F5BDF7;
+    background-color: white;
     height: 50%;
     width: 50%;
     margin: 100px auto 0;
     color:black;
-    padding: 10px;
+    padding: 10px 25px;
+    h2 {
+      font-family: 'Lobster', cursive;
+      color: $font-default-color;
+    	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      span {
+        color: white;
+      }
+    }
   }
 }
