@@ -1,5 +1,5 @@
 $addMenuWidth: 375px;
-$addButtonMargin: $addMenuWidth - 115px;
+$addButtonMargin: $addMenuWidth - 62px;
 $font-default-color: #00ffe6;
 
 body {
@@ -10,7 +10,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #ccc;
+  color: white;
 }
 
 #nav-top {
@@ -30,21 +30,35 @@ a {
 	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   font-size: 55px;
   width: 200px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 #days {
-  &::before {
-    content: 'Days'
-  }
   font-size: 18px;
-  margin: 0 25px 0 0;
   float: right;
-  color: light-gray;
+  color: white;
+  line-height: 50px;
+  span {
+    font-size: 15px;
+  }
+  ul {
+    margin: 0 25px 0 0;
+    padding-left: 5px;
+    display: inline;
+  }
   li {
+    font-family: 'Lobster', cursive;
+    color: white;
+  	text-shadow: 1px 1px 0px #2c2e38, 2px 2px 0px #5c5f72;
     list-style: none;
     display: inline;
     padding: 0 10px;
     &:hover {
       cursor: pointer;
+      color: $font-default-color;
+    }
+    &.active {
       color: $font-default-color;
     }
   }
@@ -60,10 +74,12 @@ a {
   bottom: 0;
   right: 0;
   #add {
+    margin-right: 25px;
+    color: white;
     box-sizing: border-box;
     margin-left: $addButtonMargin;
     background-color: black;
-    width: 115px;
+    width: 37px;
     padding: 10px;
     border-radius: 5px 5px 0 0;
     font-size: 18px;
@@ -81,6 +97,11 @@ a {
     h2 {
       margin: 0 0 5px;
       font-weight: normal;
+      &::first-letter {
+        font-family: 'Lobster', cursive;
+        color: $font-default-color;
+      	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      }
     }
     select {
       background-color: rgba(0,0,0,0);
@@ -106,6 +127,11 @@ a {
   h2 {
     margin: 5px 0;
     font-weight: normal;
+    &::first-letter {
+      font-family: 'Lobster', cursive;
+      color: $font-default-color;
+    	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+    }
   }
   ul {
     padding: 0;
@@ -134,6 +160,14 @@ a {
     width: 50%;
     margin: 100px auto 0;
     color:black;
-    padding: 10px;
+    padding: 10px 25px;
+    h2 {
+      font-family: 'Lobster', cursive;
+      color: $font-default-color;
+    	text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
+      span {
+        color: white;
+      }
+    }
   }
 }

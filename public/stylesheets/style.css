@@ -5,7 +5,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #ccc; }
+  color: white; }
 
 #nav-top {
   background-color: black;
@@ -23,20 +23,31 @@ a {
   text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72;
   font-size: 55px;
   width: 200px; }
+  #brand:hover {
+    cursor: pointer; }
 
 #days {
   font-size: 18px;
-  margin: 0 25px 0 0;
   float: right;
-  color: light-gray; }
-  #days::before {
-    content: 'Days'; }
+  color: white;
+  line-height: 50px; }
+  #days span {
+    font-size: 15px; }
+  #days ul {
+    margin: 0 25px 0 0;
+    padding-left: 5px;
+    display: inline; }
   #days li {
+    font-family: 'Lobster', cursive;
+    color: white;
+    text-shadow: 1px 1px 0px #2c2e38, 2px 2px 0px #5c5f72;
     list-style: none;
     display: inline;
     padding: 0 10px; }
     #days li:hover {
       cursor: pointer;
+      color: #00ffe6; }
+    #days li.active {
       color: #00ffe6; }
 
 #map {
@@ -48,10 +59,12 @@ a {
   bottom: 0;
   right: 0; }
   #nav-bottom #add {
+    margin-right: 25px;
+    color: white;
     box-sizing: border-box;
-    margin-left: 260px;
+    margin-left: 313px;
     background-color: black;
-    width: 115px;
+    width: 37px;
     padding: 10px;
     border-radius: 5px 5px 0 0;
     font-size: 18px; }
@@ -69,6 +82,10 @@ a {
     #nav-bottom #addMenu h2 {
       margin: 0 0 5px;
       font-weight: normal; }
+      #nav-bottom #addMenu h2::first-letter {
+        font-family: 'Lobster', cursive;
+        color: #00ffe6;
+        text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72; }
     #nav-bottom #addMenu select {
       background-color: transparent;
       color: white; }
@@ -87,6 +104,10 @@ a {
   #activities h2 {
     margin: 5px 0;
     font-weight: normal; }
+    #activities h2::first-letter {
+      font-family: 'Lobster', cursive;
+      color: #00ffe6;
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72; }
   #activities ul {
     padding: 0;
     margin-bottom: 25px; }
@@ -111,4 +132,10 @@ a {
     width: 50%;
     margin: 100px auto 0;
     color: black;
-    padding: 10px; }
+    padding: 10px 25px; }
+    #about #about_content h2 {
+      font-family: 'Lobster', cursive;
+      color: #00ffe6;
+      text-shadow: 3px 3px 0px #2c2e38, 5px 5px 0px #5c5f72; }
+      #about #about_content h2 span {
+        color: white; }

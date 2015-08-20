@@ -39,15 +39,15 @@
     // to the map type control.
     var mapOptions = {
       zoom: 15,
-      center: new google.maps.LatLng(40.714985, -74.000841),
+      center: new google.maps.LatLng(40.713985, -74.008841),
       mapTypeControl: false,
          panControl: false,
          zoomControlOptions: {
-           style: google.maps.ZoomControlStyle.LARGE,
-           position: google.maps.ControlPosition.LEFT_CENTER
+           style: google.maps.ZoomControlStyle.SMALL,
+           position: google.maps.ControlPosition.LEFT_BOTTOM
          }
     };
-    
+
     var map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
@@ -55,27 +55,60 @@
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
-    var hotelMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.714985, -74.015841),
-          title:"Conrad New York Hotel"
-      });
-      var activityMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.701125, -74.01250),
-          title:"Staten Island Ferry Whitehall Terminal"
-      });
-      var activityMarker2 = new google.maps.Marker({
-          position: new google.maps.LatLng(40.707119, -74.003602), // given location was off
-          title:"South Street Seaport"
-      });
-      var restaurantMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.718679, -74.008900),
-          title:"Jungsik"
-      });
+    // var hotelMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.714985, -74.015841),
+    //       title:"Conrad New York Hotel"
+    //   });
+    //   var activityMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.701125, -74.01250),
+    //       title:"Staten Island Ferry Whitehall Terminal"
+    //   });
+    //   var activityMarker2 = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.707119, -74.003602), // given location was off
+    //       title:"South Street Seaport"
+    //   });
+    //   var restaurantMarker = new google.maps.Marker({
+    //       position: new google.maps.LatLng(40.718679, -74.008900),
+    //       title:"Jungsik"
+    //   });
       // Add the marker to the map by calling setMap()
-      hotelMarker.setMap(map);
-      activityMarker.setMap(map);
-      activityMarker2.setMap(map);
-      restaurantMarker.setMap(map);
+      // hotelMarker.setMap(map);
+      // activityMarker.setMap(map);
+      // activityMarker2.setMap(map);
+      // restaurantMarker.setMap(map);
+
+      var places = [
+        {position: {lat: 40.714985, lng: -74.015841},
+        title: "Conrad New York Hotel",
+        icon: 'lodging-2.png'},
+        {position: {lat: 40.708125, lng: -74.01250},
+        title: "Staten Island Ferry Whitehall Terminal",
+        icon: 'restaurant.png'},
+        {position: {lat: 40.707119, lng: -74.003602},
+        title: "South Street Seaport",
+        icon: 'restaurant.png'},
+        {position: {lat: 40.718679, lng: -74.008900},
+        title: 'Jungsik',
+        icon: 'signpost-3.png'}
+      ];
+      var markers = [];
+
+      function addMarkerWithTimeout(position, title, icon, timeout) {
+        window.setTimeout(function() {
+          markers.push(new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title,
+            icon: icon,
+            animation: google.maps.Animation.DROP
+          }));
+        }, timeout);
+        console.log('hi');
+      }
+
+      for (var i = 0; i < places.length; i++) {
+        addMarkerWithTimeout(places[i].position, places[i].title, places[i].icon, (i + 1) * 400);
+      }
   }
 
     $(document).ready(function() {
@@ -95,7 +128,7 @@
         $('#about').show();
       })
       $('#about').click(function(){
-        $('#about').hide(); 
+        $('#about').hide();
       })
   });
   </script>
@@ -105,15 +138,18 @@
   <div id="map"></div>
 <div id="nav-top">
   <div id="brand">TripPlanner</div>
-  <ul id="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>+</li>
-  </ul>
+  <div id="days">
+    <span class="glyphicon glyphicon-calendar"></span>
+    <ul>
+      <li>1</li>
+      <li class='active'>2</li>
+      <li>3</li>
+      <li>+</li>
+    </ul>
+  </div>
 </div>
 <div id="nav-bottom">
-  <div id="add">Add Activity</div>
+  <div id="add"><span class="glyphicon glyphicon-star"></span></div>
   {% block content %}{% endblock %}
 </div>
 <div id="activities">
@@ -133,7 +169,7 @@
 </div>
 <div id='about'>
   <div id='about_content'>
-    <h3>About // Contact</h3>
+    <h2>About <span>// <a href="#">Contact</a></span></h2>
     <p>Our super duper TripPlanner app has the sickest prettiest pink map and retro aqua blue accents EVAR.</p>
   </div>
 </div>
