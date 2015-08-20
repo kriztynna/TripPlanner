@@ -38,8 +38,8 @@
     // Create a map object, and include the MapTypeId to add
     // to the map type control.
     var mapOptions = {
-      zoom: 14,
-      center: new google.maps.LatLng(40.714985, -74.000841),
+      zoom: 15,
+      center: new google.maps.LatLng(40.713985, -74.008841),
       mapTypeControl: false,
          panControl: false,
          zoomControlOptions: {
@@ -79,22 +79,27 @@
 
       var places = [
         {position: {lat: 40.714985, lng: -74.015841},
-        title: "1"},
-        {position: {lat: 40.701125, lng: -74.01250},
-        title: "2"},
+        title: "Conrad New York Hotel",
+        icon: 'lodging-2.png'},
+        {position: {lat: 40.708125, lng: -74.01250},
+        title: "Staten Island Ferry Whitehall Terminal",
+        icon: 'restaurant.png'},
         {position: {lat: 40.707119, lng: -74.003602},
-        title: "3"},
+        title: "South Street Seaport",
+        icon: 'restaurant.png'},
         {position: {lat: 40.718679, lng: -74.008900},
-        title: '4'}
+        title: 'Jungsik',
+        icon: 'signpost-3.png'}
       ];
       var markers = [];
 
-      function addMarkerWithTimeout(position, title, timeout) {
+      function addMarkerWithTimeout(position, title, icon, timeout) {
         window.setTimeout(function() {
           markers.push(new google.maps.Marker({
             position: position,
             map: map,
-            label: title,
+            title: title,
+            icon: icon,
             animation: google.maps.Animation.DROP
           }));
         }, timeout);
@@ -102,7 +107,7 @@
       }
 
       for (var i = 0; i < places.length; i++) {
-        addMarkerWithTimeout(places[i].position, places[i].title, (i + 1) * 400);
+        addMarkerWithTimeout(places[i].position, places[i].title, places[i].icon, (i + 1) * 400);
       }
   }
 
