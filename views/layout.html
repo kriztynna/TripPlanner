@@ -103,7 +103,6 @@
             animation: google.maps.Animation.DROP
           }));
         }, timeout);
-        console.log('hi');
       }
 
       for (var i = 0; i < places.length; i++) {
@@ -111,7 +110,7 @@
       }
   }
 
-    $(document).ready(function() {
+    $(window).load(function() {
         initialize();
     });
   </script>
@@ -119,7 +118,20 @@
   <script>
   $(document).ready(function() {
       $('#days li').click(function() {
+        var lis = $('#days li').toArray();
+        lis.forEach(function(li) {
+          if (li != this && $(li).hasClass('active')) $(li).removeClass('active');
+        })
+
+        // if ($('#activities').is(':hidden')) $('#activities').slideDown();
+        // if ($(this).hasClass('active')) {
+        //   console.log('hi');
+        //   $('#activities').slideUp();
+        // }
+
         $('#activities').slideToggle();
+        if ($(this).hasClass('active')) $(this).removeClass('active');
+        else ($(this).addClass('active'));
       })
       $('#add').click(function() {
         $('#addMenu').slideToggle();
@@ -142,7 +154,7 @@
     <span class="glyphicon glyphicon-calendar"></span>
     <ul>
       <li>1</li>
-      <li class='active'>2</li>
+      <li>2</li>
       <li>3</li>
       <li>+</li>
     </ul>
