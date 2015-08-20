@@ -47,7 +47,7 @@
            position: google.maps.ControlPosition.LEFT_CENTER
          }
     };
-    
+
     var map = new google.maps.Map(document.getElementById('map'),
       mapOptions);
 
@@ -95,7 +95,7 @@
         $('#about').show();
       })
       $('#about').click(function(){
-        $('#about').hide(); 
+        $('#about').hide();
       })
   });
   </script>
@@ -105,15 +105,18 @@
   <div id="map"></div>
 <div id="nav-top">
   <div id="brand">TripPlanner</div>
-  <ul id="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>+</li>
-  </ul>
+  <div id="days">
+    <span class="glyphicon glyphicon-calendar"></span>
+    <ul>
+      <li>1</li>
+      <li class='active'>2</li>
+      <li>3</li>
+      <li>+</li>
+    </ul>
+  </div>
 </div>
 <div id="nav-bottom">
-  <div id="add">Add Activity</div>
+  <div id="add"><span class="glyphicon glyphicon-star"></span></div>
   {% block content %}{% endblock %}
 </div>
 <div id="activities">
